@@ -1,4 +1,12 @@
-import { createApp } from 'vue'
-import App from './App.vue'
+declare const window: any;
 
-createApp(App).mount('#app')
+import { createApp } from "vue"
+import App from "./App.vue"
+import { router } from "./router";
+
+
+const app = createApp(App);
+app.use(router);
+app.mount("#app");
+
+window.app = app;
