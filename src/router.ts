@@ -5,9 +5,30 @@ import Blank from "./routes/Blank.vue";
 
 export const router = createRouter({
   history: createWebHashHistory(),
-  routes: [{
-    path: "/", component: Home
-  },
-  { path: '/:pathMatch(.*)', component: Blank }
+  routes: [
+    {
+      path: "/",
+      component: Home
+    },
+    {
+      path: '/projects',
+      component: Blank,
+      meta: {
+        get contentHeight() {
+          return innerHeight - 120;
+        }
+      }
+    },
+    {
+      path: '/contact',
+      component: Blank,
+      meta: {
+        contentHeight: 470
+      }
+    },
+    {
+      path: '/:pathMatch(.*)',
+      component: Blank
+    }
   ]
 });

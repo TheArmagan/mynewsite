@@ -2,16 +2,16 @@
   <div class="nav">
     <div class="buttons" @click="updateBottomBar()">
       <router-link class="button" to="/" :class="{'active': $route.path == '/'}">
-      Ev
+        Ev
       </router-link>
-      <router-link class="button" to="/hakkimda" :class="{'active': $route.path == '/hakkimda'}">
+      <router-link class="button" to="/aboutme" :class="{'active': $route.path == '/aboutme'}">
         Hakkımda
       </router-link>
-      <router-link class="button" to="/bagis" :class="{'active': $route.path == '/bagis'}">
-        Bağış
+      <router-link class="button" to="/projects" :class="{'active': $route.path == '/projects'}">
+        Projerlerim
       </router-link>
-      <router-link class="button" to="/ulasim" :class="{'active': $route.path == '/ulasim'}">
-        Ulaşım
+      <router-link class="button" to="/contact" :class="{'active': $route.path == '/contact'}">
+        İletişim
       </router-link>
     </div>
     <div class="bar-container">

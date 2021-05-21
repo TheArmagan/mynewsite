@@ -26,10 +26,26 @@ export default defineComponent({
     gsap.to(".title", {opacity: 1, duration: 4}).then(()=>{
       (this.$refs.title as HTMLHeadingElement).removeAttribute("style");
     });
+    
     gsap.to(".title", {transform: "scale(1)", duration: 1, ease: "Back.easeOut" });
-    gsap.to(".content", {height: 370, marginTop: 16, duration: 1});
+    gsap.to(".content", {height: this.getContentHeight(), marginTop: 16, duration: 1});
     gsap.to(".content", {borderRadius: 4, duration: 2});
     gsap.to(".content", {opacity: 1, duration: 4})
+  },
+  methods: {
+    getContentHeight() {
+      let maxHeight = innerHeight - 120;
+      let contentHeight = isNaN(parseInt(this.$route.meta?.contentHeight as string)) ? 370 : parseInt(this.$route.meta?.contentHeight as string);
+      if (contentHeight < 370) contentHeight = 370;
+      if (contentHeight > maxHeight) contentHeight = maxHeight;
+      console.log({contentHeight})
+      return contentHeight;
+    }
+  },
+  watch: {
+    $route() {
+      gsap.to(".content", {height: this.getContentHeight(), marginTop: 16, duration: 1});
+    }
   }
 });
 </script>
@@ -90,11 +106,13 @@ export default defineComponent({
   }
 
   .router-view {
+    padding: 16px;
     padding-bottom: 0px;
     text-align: left;
     display: block;
     height: 100%;
     width: 100%;
     contain: content;
+    color: whitesmoke;
   }
 </style>
