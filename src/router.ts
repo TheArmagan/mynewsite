@@ -1,4 +1,3 @@
-import { defineComponent } from "@vue/runtime-core";
 import { createRouter, createWebHashHistory } from "vue-router";
 import Home from "./routes/Home.vue";
 import Blank from "./routes/Blank.vue";
