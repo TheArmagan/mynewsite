@@ -1,3 +1,3 @@
 # MyNewSite
 
-henüz tamalanmadı sen inşa edilmiş versionu görmek için: https://armagan.rest/mynewsite/dist/
+henüz tamalanmadı son inşa edilmiş versionu görmek için: https://armagan.rest/mynewsite/dist/
