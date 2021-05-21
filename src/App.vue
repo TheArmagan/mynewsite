@@ -46,14 +46,23 @@ export default defineComponent({
       cursorW: 22,
       cursorH: 22,
       isCursorDown: false,
-      isCursorHoveringText: false
+      isCursorHoveringText: false,
+    }
+  },
+  computed: {
+    isTouch() {
+      return navigator.maxTouchPoints != 0;
     }
   },
   mounted() {
     window.internalApp = this;
+    if (this.isTouch) {
+      this.cursorColor = "#00000000";
+    }
   },
   methods: {
     onMouseMove(e: MouseEvent) {
+      if (this.isTouch) return;
       let x = e.x, y = e.y, target = e.target as HTMLElement;
       this.cursorX = x;
       this.cursorY = y;
@@ -94,21 +103,25 @@ export default defineComponent({
       }
     },
     onMouseEnter() {
+      if (this.isTouch) return;
       this.cursorColor = "#ffffff33";
     },
     onMouseLeave() {
+      if (this.isTouch) return;
       this.isCursorDown = false;
       this.cursorColor = "#ffffff00";
       this.cursorW = 22;
       this.cursorH = 22;
     },
     onMouseDown() {
+      if (this.isTouch) return;
       this.isCursorDown = true;
       if (this.isCursorHoveringText) return;
       this.cursorW = 18;
       this.cursorH = 18;
     },
     onMouseUp() {
+      if (this.isTouch) return;
       this.isCursorDown = false;
       if (this.isCursorHoveringText) return;
       this.cursorW = 22;

@@ -38,7 +38,6 @@ export default defineComponent({
       let contentHeight = isNaN(parseInt(this.$route.meta?.contentHeight as string)) ? 370 : parseInt(this.$route.meta?.contentHeight as string);
       if (contentHeight < 370) contentHeight = 370;
       if (contentHeight > maxHeight) contentHeight = maxHeight;
-      console.log({contentHeight})
       return contentHeight;
     }
   },
