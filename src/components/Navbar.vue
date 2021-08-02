@@ -1,5 +1,5 @@
 <template>
-  <div class="nav">
+  <div class="nav-component">
     <div class="buttons" @click="updateBottomBar()">
       <router-link class="button" to="/" :class="{'active': $route.path == '/'}">
         Ev
@@ -45,7 +45,7 @@ export default defineComponent({
 
 
 <style scoped>
-  .nav {
+  .nav-component {
     display: block;
     width: 100%;
   }

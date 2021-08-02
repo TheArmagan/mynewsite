@@ -1,5 +1,5 @@
 <template>
-  <div class="background">
+  <div class="background-component">
     <canvas ref="canvas"></canvas>
   </div>
 </template>

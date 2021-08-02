@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 declare const window: any;
 
 import { createApp } from "vue"

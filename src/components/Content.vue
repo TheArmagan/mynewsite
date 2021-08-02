@@ -35,8 +35,8 @@ export default defineComponent({
   methods: {
     getContentHeight() {
       let maxHeight = innerHeight - 120;
-      let contentHeight = isNaN(parseInt(this.$route.meta?.contentHeight as string)) ? 370 : parseInt(this.$route.meta?.contentHeight as string);
-      if (contentHeight < 370) contentHeight = 370;
+      let contentHeight = isNaN(parseInt(this.$route.meta?.contentHeight as string)) ? 380 : parseInt(this.$route.meta?.contentHeight as string);
+      if (contentHeight < 380) contentHeight = 380;
       if (contentHeight > maxHeight) contentHeight = maxHeight;
       return contentHeight;
     }
@@ -113,5 +113,6 @@ export default defineComponent({
     width: 100%;
     contain: content;
     color: whitesmoke;
+    overflow-y: overlay;
   }
 </style>

@@ -7,7 +7,12 @@ export const router = createRouter({
   routes: [
     {
       path: "/",
-      component: Home
+      component: Home,
+      meta: {
+        get contentHeight() {
+          return 450;
+        }
+      }
     },
     {
       path: '/projects',
