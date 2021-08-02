@@ -1,0 +1,4 @@
+- [x] TextInput
+- [x] Button
+- [ ] Hakkımda kısmını yaz
+- [ ] Projelerim kısmını otomatik olarak bir json dosyasından yükle
