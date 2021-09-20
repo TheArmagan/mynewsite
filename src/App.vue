@@ -1,12 +1,5 @@
 <template>
-  <div 
-  @mousemove="onMouseMove" 
-  @mouseleave="onMouseLeave" 
-  @mouseenter="onMouseEnter"
-  @mousedown="onMouseDown"
-  @mouseup="onMouseUp"
-  >
-    <Cursor :w="cursorW" :h="cursorH" :c="cursorColor" :x="cursorX" :y="cursorY" :style="`border-radius:99999px;${isCursorHoveringText ? `border: 1px solid black;` : ''}`"/>
+  <div>
     <Background/>
     <Content/>
     <div class="used-thecnoligies">
@@ -29,25 +22,15 @@ declare const window: any;
 import { defineComponent } from 'vue';
 import Background from './components/Background.vue';
 import Content from './components/Content.vue';
-import Cursor from './components/Cursor.vue';
 
 export default defineComponent({
   name: 'App',
   components: {
     Content,
     Background,
-    Cursor
   },
   data() {
-    return {
-      cursorX: -50,
-      cursorY: -50,
-      cursorColor: "#ffffff55",
-      cursorW: 22,
-      cursorH: 22,
-      isCursorDown: false,
-      isCursorHoveringText: false,
-    }
+    return {}
   },
   computed: {
     isTouch() {
@@ -56,78 +39,8 @@ export default defineComponent({
   },
   mounted() {
     window.internalApp = this;
-    if (this.isTouch) {
-      this.cursorColor = "#00000000";
-    }
   },
-  methods: {
-    onMouseMove(e: MouseEvent) {
-      if (this.isTouch) return;
-      let x = e.x, y = e.y, target = e.target as HTMLElement;
-      this.cursorX = x;
-      this.cursorY = y;
-
-      
-      let isCursorHoveringTextElement = false;
-      {
-        let firstChild = target?.firstChild as HTMLElement;
-        if (firstChild?.nodeName == "#text") {
-          let style = getComputedStyle(target);
-          let userSelect = style.userSelect || style.webkitUserSelect || "auto";
-          if (userSelect == "auto" || userSelect == "text") {
-            let rect = target?.getBoundingClientRect();
-            if (rect) {
-              if (x > rect.left && y > rect.top && x < (rect.left+rect.width) && y < (rect.top+rect.height)) {
-                isCursorHoveringTextElement = true;
-              }
-            }
-          }
-        }
-      }
-      
-      this.isCursorHoveringText = isCursorHoveringTextElement;
-      if (isCursorHoveringTextElement) {
-        this.cursorColor = "#ffffff";
-        this.cursorW = 4;
-        this.cursorH = 26;
-      } else {
-        this.cursorColor = "#ffffff33";
-        if (this.isCursorDown) {
-          this.cursorW = 18;
-          this.cursorH = 18;
-        } else {
-          this.cursorW = 22;
-          this.cursorH = 22;
-        }
-       
-      }
-    },
-    onMouseEnter() {
-      if (this.isTouch) return;
-      this.cursorColor = "#ffffff33";
-    },
-    onMouseLeave() {
-      if (this.isTouch) return;
-      this.isCursorDown = false;
-      this.cursorColor = "#ffffff00";
-      this.cursorW = 22;
-      this.cursorH = 22;
-    },
-    onMouseDown() {
-      if (this.isTouch) return;
-      this.isCursorDown = true;
-      if (this.isCursorHoveringText) return;
-      this.cursorW = 18;
-      this.cursorH = 18;
-    },
-    onMouseUp() {
-      if (this.isTouch) return;
-      this.isCursorDown = false;
-      if (this.isCursorHoveringText) return;
-      this.cursorW = 22;
-      this.cursorH = 22;
-    }
-  }
+  methods: {}
 });
 </script>
 
@@ -142,7 +55,6 @@ export default defineComponent({
   box-sizing: border-box;
   outline: 0;
   font-family: 'Raleway', sans-serif;
-  cursor: none !important;
 }
 
 ::-webkit-scrollbar {
@@ -187,11 +99,7 @@ html, body, #app {
   z-index: 2;
 }
 
-.cursor-container {
-  z-index: 3;
-}
-
-.background, .main, .cursor-container {
+.background, .main {
   width: 100vw;
   height: 100vh;
   position: absolute;
@@ -213,7 +121,6 @@ a {
   left: 4px;
   bottom: 4px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  user-select: none;
   transition: opacity 100ms ease-in-out;
 }
 

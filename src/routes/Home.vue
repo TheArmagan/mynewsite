@@ -1,8 +1,9 @@
 <template>
   <div class="home">
     <p>In Development</p>
+    <p>{{nice}}</p>
     <br>
-    <TextInput/>
+    <TextInput v-model="nice"/>
     <br><br>
     <TextInput value="With value"/>
     <br><br>
@@ -23,6 +24,11 @@ export default defineComponent({
   components: {
     TextInput,
     Button
+  },
+  data() {
+    return {
+      nice: "h3ll0"
+    }
   }
 })
 </script>

@@ -1,37 +1,42 @@
 <template>
   <span class="text-input-component">
     <p v-if="title" class="title">{{title}}</p>
-    <input type="text" :name="name" :id="id" :placeholder="placeholder" :value="value">
+    <input @input="$emit('update:modelValue', $event.target.value)" :value="modelValue || value" type="text" :name="name" :id="id" :placeholder="placeholder">
   </span>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
-export default defineComponent({
-  name: "TextInput",
-  props: {
-    value: {
-      type: String,
-      default: ""
+<script>
+  import { defineComponent } from 'vue'
+  export default defineComponent({
+    name: "TextInput",
+    props: {
+      value: {
+        type: String,
+        default: ""
+      },
+      modelValue: {
+        type: String,
+        default: ""
+      },
+      placeholder: {
+        type: String,
+        default: ""
+      },
+      title: {
+        type: String,
+        default: ""
+      },
+      name: {
+        type: String,
+        default: ""
+      },
+      id: {
+        type: String,
+        default: ""
+      },
     },
-    placeholder: {
-      type: String,
-      default: ""
-    },
-    title: {
-      type: String,
-      default: ""
-    },
-    name: {
-      type: String,
-      default: ""
-    },
-    id: {
-      type: String,
-      default: ""
-    },
-  }
-})
+    emits: ['update:modelValue']
+  })
 </script>
 
 <style scoped>
