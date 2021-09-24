@@ -2,9 +2,6 @@
   <div class="nav-component">
     <div class="buttons" @click="updateBottomBar()">
       <router-link class="button" to="/" :class="{'active': $route.path == '/'}">
-        Ev
-      </router-link>
-      <router-link class="button" to="/aboutme" :class="{'active': $route.path == '/aboutme'}">
         Hakkımda
       </router-link>
       <router-link class="button" to="/projects" :class="{'active': $route.path == '/projects'}">

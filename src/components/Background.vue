@@ -39,7 +39,7 @@ export default defineComponent({
       drawData.forEach(i=>{
         ctx.beginPath();
         ctx.arc(i.x-(i.progress/2), i.y-(i.progress/2), i.progress, 0, 2 * Math.PI, false);
-        ctx.fillStyle = `rgba(32, 40, 54, ${1-(i.progress/50)})`;
+        ctx.fillStyle = `rgba(150, 40, 54, ${1-(i.progress/50)})`;
         ctx.fill();
         i.progress += 2;
         if (i.progress > 100) {

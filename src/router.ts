@@ -1,22 +1,23 @@
 import { createRouter, createWebHashHistory } from "vue-router";
-import Home from "./routes/Home.vue";
+
 import Blank from "./routes/Blank.vue";
+import Contact from "./routes/Contact.vue";
+import Projects from "./routes/Projects.vue";
+import AboutMe from "./routes/AboutMe.vue";
 
 export const router = createRouter({
   history: createWebHashHistory(),
   routes: [
     {
-      path: "/",
-      component: Home,
+      path: '/',
+      component: AboutMe,
       meta: {
-        get contentHeight() {
-          return 450;
-        }
+        contentHeight: 470
       }
     },
     {
       path: '/projects',
-      component: Blank,
+      component: Projects,
       meta: {
         get contentHeight() {
           return innerHeight - 120;
@@ -25,9 +26,9 @@ export const router = createRouter({
     },
     {
       path: '/contact',
-      component: Blank,
+      component: Contact,
       meta: {
-        contentHeight: 470
+        contentHeight: 450
       }
     },
     {

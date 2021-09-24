@@ -41,6 +41,7 @@ export default defineComponent({
     border: 1px solid #90929b;
     border-radius: 6px;
     user-select: none;
+    cursor: pointer;
   }
 
   button:hover {
@@ -54,5 +55,4 @@ export default defineComponent({
     border: 1px solid #7e808a;
     color: rgb(238, 238, 238);
   }
-
 </style>
