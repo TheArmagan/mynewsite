@@ -1,5 +1,5 @@
 <template>
   <div class="blank">
-    <p>&lt;blank&gt;</p>
+    <p>Aradığınız sayfa bulunamadı.</p>
   </div>
 </template>

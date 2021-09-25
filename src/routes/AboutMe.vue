@@ -18,8 +18,8 @@
       <router-link to="/projects">
         <Button value="Projelerim"></Button> 
       </router-link>
-      <router-link to="/aboutme">
-        <Button value="Hakkımda"></Button> 
+      <router-link to="/contact">
+        <Button value="İletişim"></Button> 
       </router-link>
     </span>
   </div>  

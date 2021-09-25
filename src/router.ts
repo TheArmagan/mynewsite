@@ -4,6 +4,7 @@ import Blank from "./routes/Blank.vue";
 import Contact from "./routes/Contact.vue";
 import Projects from "./routes/Projects.vue";
 import AboutMe from "./routes/AboutMe.vue";
+import { events } from "./events";
 
 export const router = createRouter({
   history: createWebHashHistory(),
@@ -36,4 +37,10 @@ export const router = createRouter({
       component: Blank
     }
   ]
+});
+
+router.afterEach(() => {
+  setTimeout(() => {
+    events.emit("updateNavBar", false);
+  }, 10)
 });

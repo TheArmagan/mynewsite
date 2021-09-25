@@ -20,12 +20,16 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import gsap from "gsap";
+import { events } from '@/events';
 
 export default defineComponent({
   mounted() {
     this.updateBottomBar(true);
     window.addEventListener("resize", ()=>{
       this.updateBottomBar(true);
+    });
+    events.on("updateNavBar", (instant: boolean)=>{
+      this.updateBottomBar(instant);
     });
   },
   methods: {
